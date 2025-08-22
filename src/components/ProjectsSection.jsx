@@ -14,7 +14,7 @@ const projects = [
     id: 2,
     title: "Barangay Information System",
     description: "A web-base information sytem for Barangay Batis",
-    image: "/projects/project2.png",
+    image: "/projects/brgylogo.jpg",
     tags: ["JS", "CSS", "PHP"],
     demoUrl: "https://github.com/Dioswoah/IT135-8L-Barangay-Batis/tree/main",
     githubUrl: "https://github.com/Dioswoah/IT135-8L-Barangay-Batis/tree/main",
