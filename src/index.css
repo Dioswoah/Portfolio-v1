@@ -123,7 +123,6 @@
 }
 
 @utility text-glow {
-  @apply relative;
   text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
 }
 
@@ -132,16 +131,47 @@
 }
 
 @utility gradient-border {
-  @apply relative rounded-md;
-  background: linear-gradient(to right, hsl(var(--card)), hsl(var(--card)));
-  background-clip: padding-box;
-  border: 1px solid transparent;
+  @apply relative rounded-xl border border-transparent backdrop-blur-md;
+  background: linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box,
+              linear-gradient(135deg, rgba(139, 92, 246, 0.5), rgba(59, 130, 246, 0.5), rgba(16, 185, 129, 0.2)) border-box;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.2);
+}
+
+@utility text-gradient-ai {
+  background: linear-gradient(to right, #c084fc, #3b82f6, #2dd4bf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: pulse-subtle 4s ease-in-out infinite;
+}
+
+@utility glass-panel {
+  @apply backdrop-blur-xl border rounded-2xl shadow-2xl;
+  background-color: hsl(var(--background) / 0.4);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 @utility cosmic-button {
-  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium 
-         transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)]
-         hover:scale-105 active:scale-95;
+  @apply px-6 py-2 rounded-full font-medium relative overflow-hidden
+         transition-all duration-300 transform hover:scale-105 active:scale-95;
+  background: linear-gradient(135deg, hsl(var(--primary)), rgba(59, 130, 246, 0.8));
+  color: hsl(var(--primary-foreground));
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+}
+
+@layer utilities {
+  .cosmic-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(100%);
+    transition: transform 0.3s ease-out;
+    border-radius: 9999px;
+  }
+  .cosmic-button:hover::before {
+    transform: translateY(0);
+  }
 }
 
 @utility star {
@@ -150,7 +180,8 @@
 }
 
 @utility meteor {
-  @apply absolute bg-linear-to-r from-white via-white to-transparent rounded-full;
+  @apply absolute rounded-full;
+  background: linear-gradient(to right, white, white, transparent);
   box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
 }
 

@@ -12,15 +12,15 @@ export const AboutSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h3 className="text-2xl font-semibold">
-              Passionate Web Developer & `Software Engineer
+              Passionate Full Stack AI & Software Engineer
             </h3>
 
             <p className="text-muted-foreground">
-              With experience in web development, I specialize in building responsive, accessible, and high-performance web applications using modern technologies. I also integrate AI-driven automation, including chatbots and smart solutions, to enhance user experiences and efficiency.
+              With extensive experience bridging the gap between traditional web development and artificial intelligence, I specialize in architecting responsive, scalable, and high-performance applications. I seamlessly integrate AI-driven solutions, including real-time voice agents, intelligent chatbots, and complex workflow automation, to dramatically enhance operational efficiency and user experience.
             </p>
 
             <p className="text-muted-foreground">
-              I’m passionate about designing elegant solutions to complex challenges and continuously expanding my knowledge. By learning and applying the latest technologies and techniques, I stay at the forefront of the ever-evolving web and AI landscape.
+              I’m passionate about engineering elegant, deeply technical solutions to complex challenges. By continuously expanding my expertise and leveraging cutting-edge cloud infrastructure and modern frameworks, I stay at the forefront of the ever-evolving Full Stack and AI landscape.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
@@ -30,7 +30,8 @@ export const AboutSection = () => {
               </a>
 
               <a
-                href=""
+                href="/Ramos.MJ - Resume.pdf"
+                download="Ramos.MJ - Resume.pdf"
                 className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
               >
                 Download CV

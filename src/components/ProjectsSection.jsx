@@ -1,4 +1,5 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { motion } from "framer-motion";
 
 const projects = [
   {
@@ -21,12 +22,39 @@ const projects = [
   },
   {
     id: 3,
-    title: "Project Name",
-    description: "Project Description",
+    title: "AI Voice Agent",
+    description: "Real-time AI voice agent integration for natural conversations. Built leveraging Vapi and ElevenLabs for seamless voice synthesis and recognition.",
     image: "/projects/project3.png",
-    tags: ["React", "Node.js", "Stripe"],
+    tags: ["Vapi", "ElevenLabs", "AI Integration"],
+    demoUrl: "https://github.com/Dioswoah/lead-getter",
+    githubUrl: "https://github.com/Dioswoah/lead-getter",
+  },
+  {
+    id: 4,
+    title: "Intelligent Chatbot",
+    description: "Advanced chatbot solutions tailored to business needs utilizing Google ADK, FlowiseAI, Botpress, and n8n backend workflows.",
+    image: "/projects/project1.png",
+    tags: ["Google ADK", "FlowiseAI", "Botpress", "n8n"],
+    demoUrl: "https://github.com/Dioswoah/Debtor-Assistant",
+    githubUrl: "https://github.com/Dioswoah/Debtor-Assistant",
+  },
+  {
+    id: 5,
+    title: "AI Tools & Automation",
+    description: "Custom MCP Tools development, workflow automation, and infrastructure deployment.",
+    image: "/projects/project3.png",
+    tags: ["MCP Tools", "n8n", "Make.com", "GCP", "DevOps"],
     demoUrl: "#",
     githubUrl: "#",
+  },
+  {
+    id: 6,
+    title: "Attendance System",
+    description: "Full-stack attendance management system to track and verify attendance logs effectively.",
+    image: "/projects/project1.png",
+    tags: ["TypeScript", "Next.js", "Full Stack"],
+    demoUrl: "https://github.com/Dioswoah/Attendance",
+    githubUrl: "https://github.com/Dioswoah/Attendance",
   },
 ];
 
@@ -46,9 +74,14 @@ export const ProjectsSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, key) => (
-            <div
+            <motion.div
               key={key}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: key * 0.1 }}
+              whileHover={{ y: -5 }}
+              className="group glass-panel rounded-xl overflow-hidden card-hover"
             >
               <div className="h-48 overflow-hidden">
                 <img
@@ -90,7 +123,7 @@ export const ProjectsSection = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 

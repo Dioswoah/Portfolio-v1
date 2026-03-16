@@ -20,13 +20,27 @@ export const ContactSection = () => {
     e.preventDefault();
 
     setIsSubmitting(true);
+    
+    // Extract data from the form
+    const formData = new FormData(e.target);
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const message = formData.get("message");
+
+    // Construct mailto link
+    const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+    );
+    window.location.href = `mailto:marcjoshua1019@gmail.com?subject=${subject}&body=${body}`;
 
     setTimeout(() => {
       toast({
-        title: "Message sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
+        title: "Redirected to your Email Client",
+        description: "Your default email app should have opened with your message ready to send.",
       });
       setIsSubmitting(false);
+      e.target.reset(); // Clear form
     }, 1500);
   };
   return (
@@ -106,13 +120,10 @@ export const ContactSection = () => {
             </div>
           </div>
 
-          <div
-            className="bg-card p-8 rounded-lg shadow-xs"
-            onSubmit={handleSubmit}
-          >
+          <div className="bg-card p-8 rounded-lg shadow-xs">
             <h3 className="text-2xl font-semibold mb-6"> Send a Message</h3>
 
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label
                   htmlFor="name"

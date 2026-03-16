@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 const skills = [
   // Frontend
@@ -22,9 +23,20 @@ const skills = [
   { name: "Docker", level: 90, category: "tools" },
   { name: "Figma", level: 90, category: "tools" },
   { name: "VS Code", level: 95, category: "tools" },
+  { name: "GCP", level: 80, category: "tools" },
+  { name: "n8n", level: 85, category: "tools" },
+  { name: "Make.com", level: 80, category: "tools" },
+  
+  // AI
+  { name: "Vapi", level: 85, category: "ai" },
+  { name: "ElevenLabs", level: 90, category: "ai" },
+  { name: "Google ADK", level: 85, category: "ai" },
+  { name: "Botpress", level: 80, category: "ai" },
+  { name: "FlowiseAI", level: 85, category: "ai" },
+  { name: "MCP Architecture", level: 80, category: "ai" },
 ];
 
-const categories = ["all", "frontend", "backend", "tools"];
+const categories = ["all", "frontend", "backend", "tools", "ai"];
 
 export const SkillsSection = () => {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -58,9 +70,13 @@ export const SkillsSection = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredSkills.map((skill, key) => (
-            <div
+            <motion.div
               key={key}
-              className="bg-card p-6 rounded-lg shadow-xs card-hover"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.4, delay: (key % 3) * 0.1 }}
+              className="glass-panel p-6 card-hover"
             >
               <div className="text-left mb-4">
                 <h3 className="font-semibold text-lg"> {skill.name}</h3>
@@ -77,7 +93,7 @@ export const SkillsSection = () => {
                   {skill.level}%
                 </span>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
