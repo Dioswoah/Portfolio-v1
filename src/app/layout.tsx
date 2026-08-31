@@ -22,7 +22,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portfolio-v1-two-ebon.vercel.app"),
+  metadataBase: new URL("https://marc-prompt.vercel.app"),
   title: "Marc: Prompt — Marc Joshua Ramos, AI Engineer & IT Lead",
   description:
     "Marc: Prompt — the portfolio of Marc Joshua Ramos, an AI engineer and IT lead who builds the agents, automations, and systems that real businesses run on.",
